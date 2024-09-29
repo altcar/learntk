@@ -30,5 +30,9 @@ export default defineConfig({
   // adapter: cloudflare(),
   adapter: node({
     mode: "standalone"
-  })
+  }),
+  esbuild: {
+    target: 'esnext',
+    platform: 'linux',
+  }
 });
