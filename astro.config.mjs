@@ -19,7 +19,7 @@ import vercel from '@astrojs/vercel/serverless';
 //   // adapter: cloudflare(),
 //   adapter: node({
 //     mode: "standalone"
-//   })
+//   }) 1
 export default defineConfig({
   site: 'https://learntk.vercel.app',
   integrations: [ starlight({
