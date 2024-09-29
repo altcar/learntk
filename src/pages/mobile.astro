@@ -1,0 +1,32 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+---
+
+<BaseHead title="use laptop" description="not support" />
+<div class="all">
+
+    <h5>Sorry your device is not supported.
+        <br />
+        Please use a laptop or desktop to access this page.
+        
+    </h5>
+    <button onclick="window.location.href = window.location.origin"><h1>Try Again</h1></button>
+</div>
+<style>
+    .all {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        text-align: center;
+    }
+    button {
+        padding: 10px 20px;
+        margin-top: 20px;
+        border: none;
+        /* background-color: #000; */
+        background: #fff;
+        cursor: pointer;
+    }
+    </style>
