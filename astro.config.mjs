@@ -27,7 +27,7 @@ export default defineConfig({
       './src/styles/custom.css',
     ],  },)],
   output: "server",
-  // adapter: cloudflare(),
+  adapter: cloudflare(),
   adapter: node({
     mode: "standalone"
   }),
