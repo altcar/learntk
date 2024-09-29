@@ -7,6 +7,8 @@ import react from "@astrojs/react";
 
 import starlight from "@astrojs/starlight";
 
+import vercel from '@astrojs/vercel/serverless';
+
 // https://astro.build/config
 // export default defineConfig({
 //   site: 'https://example.com',
@@ -27,7 +29,7 @@ export default defineConfig({
       './src/styles/custom.css',
     ],  },)],
   output: "server",
-  adapter: cloudflare(),
+  adapter: vercel(),
   adapter: node({
     mode: "standalone"
   }),
