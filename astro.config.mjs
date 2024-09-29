@@ -19,7 +19,7 @@ import starlight from "@astrojs/starlight";
 //     mode: "standalone"
 //   })
 export default defineConfig({
-  // site: 'https://example.com',
+  site: 'https://learntk.vercel.app',
   integrations: [ starlight({
     title: 'code creators',
     customCss: [
