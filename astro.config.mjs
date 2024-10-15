@@ -22,11 +22,10 @@ export default defineConfig({
     // Relative path to your custom CSS file
     './src/styles/custom.css']
   })],
-  output: "server"
-  // adapter: cloudflare(),
+  output: "server",
+  adapter: cloudflare(),
   // adapter: node({
   //   mode: "standalone"
-  // })
-  ,
-  adapter: vercel()
+  // }),
+  // adapter: vercel()
 });
