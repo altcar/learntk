@@ -1,50 +1,140 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Card from "../components/ProfileCard.astro";
+
+function called() {
+  console.log("called");
+}
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="splash">
+        <h1>🧑‍🚀 Hello, Coders!</h1>
+        <div class="splashbuttoncontainer">
+          <a class="member" href="/buy">
+			<span>Join the squad!</span>
+            <button>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+                  stroke="#000000"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+              Get the course now</button>
+            </a>
+
+          <!-- <a class="member" href="/api/login" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=SomeSize,height=SomeSize'); return false;"> -->
+			<a class="member" href="/api/login" >
+		
+            <span>Already a member?</span>
+            <button 
+              style="--provider-bg: #5865F2; --provider-dark-bg: #5865F2; --provider-color: #fff; --provider-dark-color: #fff; --provider-bg-hover: rgba(88, 101, 242, 0.8); --provider-dark-bg-hover: rgba(88, 101, 242, 0.8);"
+              tabindex="0"
+            >
+              <img
+                loading="lazy"
+                height="24"
+                width="24"
+                id="provider-logo"
+                src="https://authjs.dev/img/providers/discord.svg"
+              />
+              <!-- <img loading="lazy" height="24" width="24" id="provider-logo-dark" src="https://authjs.dev/img/providers/discord.svg"> -->
+              <span>Sign in with Discord</span></button
+            >
+          </a>
+        </div>
+      </div>
+      <div class="splash">
+        <h1>Your Tutor:</h1>
+        <div class="splashbuttoncontainer">
+          <Card 	name="Shalev"   linkedin="https://www.linkedin.com/in/shalevl"  github="https://github.com/mushroomhater07"  email="mailto:admin@shalev.eu.org" image="/IMG_2845_edited.webp" />
+          <Card 	name="Nedjm"   linkedin="https://www.linkedin.com/in/nedjm-eddine-laib-48873925b/"  image="/WhatsApp Image 2024-02-20 at 20_52_37_297df171.webp" />
+          <Card 	name="Jivanthika"   linkedin="https://www.linkedin.com/in/jivanthika-venkatakrishnan-24356620a/"   image="/Plant Shadow _edited.webp" />
+          <Card 	name="Haris"   linkedin="https://www.linkedin.com/in/haris-sul"  image="/WhatsApp Image 2024-02-20 at 20_52_59_c2b5c18e.webp" />
+        </div>
+       </div>
+      </main>
+    <Footer />
+  </body><style>
+
+    .splash {
+      padding: 200px 0 200px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .splashbuttoncontainer {
+      display: flex;
+    }
+    button svg,
+    button img {
+      margin-right: 10px;
+    }
+    button span {
+      flex-grow: 1;
+    }
+	.member {
+		display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+	}
+    button {
+      margin: 0 20px 0 20px;
+      height: 50px;
+      padding: 0.75rem 1rem;
+      color: var(--provider-color, var(--color-primary));
+      background-color: var(--provider-bg);
+      font-size: 1.1rem;
+      min-height: 62px;
+      border-color: rgba(0, 0, 0, 0.1);
+      border-radius: var(--border-radius);
+      transition: all 0.1s ease-in-out;
+      font-weight: 500;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button:hover,
+    a.button:hover {
+      background-color: var(--provider-bg-hover, var(--color-background-hover));
+      cursor: pointer;
+    }
+
+    button:active,
+    a.button:active {
+      cursor: pointer;
+    }
+
+    button #provider-logo,
+    a.button #provider-logo {
+      width: 25px;
+      display: block;
+    }
+
+    button #provider-logo-dark,
+    a.button #provider-logo-dark {
+      display: none;
+    }
+  </style>
 </html>

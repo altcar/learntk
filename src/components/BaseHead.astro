@@ -3,6 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 
+
 interface Props {
 	title: string;
 	description: string;
@@ -16,8 +17,9 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
+
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
@@ -45,3 +47,17 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		window.dispatchEvent(new Event('resize'));
+});
+
+	window.addEventListener("resize", function(event) {
+		var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+		(width < 502)?	((!window.location.href.includes('mobile'))? window.location.href = window.location.origin+'/mobile': null):null;
+		(width > 502)?	((!window.location.href.includes('mobile'))? null : window.location.href = window.location.origin):null;
+	}
+);
+	
+</script>

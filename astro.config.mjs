@@ -7,8 +7,6 @@ import react from "@astrojs/react";
 
 import starlight from "@astrojs/starlight";
 
-import vercel from '@astrojs/vercel/serverless';
-
 // https://astro.build/config
 // export default defineConfig({
 //   site: 'https://example.com',
@@ -19,22 +17,19 @@ import vercel from '@astrojs/vercel/serverless';
 //   // adapter: cloudflare(),
 //   adapter: node({
 //     mode: "standalone"
-//   }) 1
+//   })
 export default defineConfig({
-  site: 'https://learntk.vercel.app',
+  site: 'https://example.com',
   integrations: [ starlight({
+    disable404Route: true,
     title: 'code creators',
     customCss: [
       // Relative path to your custom CSS file
       './src/styles/custom.css',
     ],  },)],
   output: "server",
-  adapter: vercel(),
+  // adapter: cloudflare(),
   adapter: node({
     mode: "standalone"
-  }),
-  esbuild: {
-    target: 'esnext',
-    platform: 'linux',
-  }
+  })
 });
