@@ -4,7 +4,7 @@ import { getFirestore, Timestamp, FieldValue, Filter } from 'firebase-admin/fire
 import {config} from "dotenv"; config()
 
 initializeApp({
-  credential: cert(process.env.FIREBASE_ADMIN_SDK),
+  credential: cert(JSON.parse(process.env.FIREBASE)),
 });
 
 export const db = getFirestore();
