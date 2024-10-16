@@ -6,7 +6,7 @@ description: Learn more about my project in this docs site built with Starlight.
 ## Final Project Submission
 > after you have uploaded, you will get a feedback and certificate within a week
 
-> if you get an error, you must login at [https://cc.shalify.eu.org](https://cc.shalify.eu.org) 
+> if you get an error, you must login at [https://learntk.vercel.app](https://learntk.vercel.app) 
 
 **Option 1: <a href="https://ufile.io/" target="_blank">upload the file and paste the link below</a><br>
 Option 2: Click "SHARE" on replit and paste the share link below**

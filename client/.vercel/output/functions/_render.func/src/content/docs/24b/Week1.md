@@ -10,7 +10,7 @@ This week we will learn about basic python syntax and usage
 [https://meet.google.com/nvm-vdfw-nbu](https://meet.google.com/nvm-vdfw-nbu)
 
 ## Task upload
-> if you get an error, you must login at [https://cc.shalify.eu.org](https://cc.shalify.eu.org) 
+> if you get an error, you must login at [https://learntk.vercel.app](https://learntk.vercel.app) 
 
 <a href="https://ufile.io/" target="_blank">upload the file and paste the link below</a>
 

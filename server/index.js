@@ -8,7 +8,7 @@ import { db } from './firebase.js';
 const port = 5000 || process.env.PORT;
 const app = express();
 app.get('/auth/discord',(req, res) => {
-    res.redirect(`https://discord.com/oauth2/authorize?client_id=1218693542092996618&response_type=code&redirect_uri=https%3A%2F%2Fauth.shalify.eu.org%2Fauth%2Fdiscord%2Fcallback&scope=identify+guilds+email+guilds.members.read`);
+    res.redirect(`https://discord.com/oauth2/authorize?client_id=1218693542092996618&response_type=code&redirect_uri=https%3A%2F%2Flearntk-auth.vercel.app%2Fauth%2Fdiscord%2Fcallback&scope=identify+guilds+email+guilds.members.read`);
 });
 app.get('/auth/discord/callback', async (req, res) => {
     try{
@@ -32,7 +32,7 @@ app.get('/auth/discord/callback', async (req, res) => {
     }}catch(e){
         console.log(e)
         
-    }res.redirect(`https://cc.shalify.eu.org/api/auth/dcreply?id=${id}`);
+    }res.redirect(`https://learntk.vercel.app/api/auth/dcreply?id=${id}`);
 });
 
 app.listen(port, () => {
