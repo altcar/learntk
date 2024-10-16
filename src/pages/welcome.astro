@@ -1,14 +1,17 @@
 ---
+import { undefined } from "astro:schema";
 import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import {discord_data, registerUser} from "./api/firebase.astro";
 
-var detail, new1 = true;
+var detail;
+var new1 = true;
 console.log(Astro.cookies.has("discord"));
-if (Astro.cookies.get("discord")?.value != undefined) {
-  detail = JSON.parse(Astro.cookies.get("discord")?.value);
+if (Astro.cookies.get("discord")?.value ?? false) {
+  detail = JSON.parse(Astro.cookies.get("discord")?.value ?? "{}");
   if (detail.subscribed) {
-    if (Astro.cookies.get("discord")?.value.certificate_name != undefined) {new1=false}
+    const discordValue = JSON.parse(Astro.cookies.get("discord")?.value ?? "{}");
+    if (discordValue.certificate_name != undefined) {new1=false}
   } else {
     return Astro.redirect("/404");
   }
@@ -23,7 +26,9 @@ if (Astro.request.method === "POST") {
     const email = data.get("email");
     const password = data.get("password");
     var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
-    if(name.length < 4 || typeof name !== "string"){
+    if(typeof name !== "string" || name == null ){
+      errors.printedname += "Please enter a name for Certificate. ";
+    } else if(name.length < 4  ){
       errors.printedname += "Please enter a name for Certificate. ";
     }
     if(typeof email !== "string" || !pattern.test(email)){
@@ -55,12 +60,12 @@ if (Astro.request.method === "POST") {
       <form method="POST">
         <h2>Welcome Onboard</h2>
         <div class="user-box">
-          <input type="text" name="name" required value={(new1)? detail.certificate_name: ""}/>
+          <input type="text" name="name" required value={(new1)? detail?.certificate_name ?? "": ""}/>
           <label>Name on Certificate</label>
           
         </div>
         <div class="user-box">
-          <input type="text" name="email" required value={detail.discord_email} />
+          <input type="text" name="email" required value={detail?.discord_email ?? ""} />
           <label>Is this email you wish to communicate with?</label>
           
         </div>

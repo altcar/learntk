@@ -9,7 +9,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 // var detail = (Astro.cookies.get("discord")?.value ?? "")? JSON.parse(detail): {subscribed: false};
 
 if (Astro.cookies.get("discord")?.value != undefined) {
-  var detail = JSON.parse(Astro.cookies.get("discord")?.value);
+  var detail = JSON.parse(Astro.cookies.get("discord")?.value ?? "{}");
   if (detail.subscribed) {
   } else {
     return Astro.redirect("/404");

@@ -2,7 +2,7 @@
 console.log(Astro.cookies.get("discord")?.value)
 // console.log(JSON.parse(Astro.cookies.get("discord")?.value))
 if (Astro.cookies.get("discord")?.value != undefined) {
-  var detail = JSON.parse(Astro.cookies.get("discord")?.value);
+  var detail = JSON.parse(Astro.cookies.get("discord")?.value ?? "{}");
   if (detail.subscribed) {
     return Astro.redirect(`/api/auth/dcreply?id=${detail.discord_id}`);
   } else {
