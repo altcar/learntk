@@ -11,6 +11,12 @@ export default defineConfig({
   site: 'https://example.com',
   output: 'server',
 
+  vite: {
+    ssr: {
+      noExternal: ['firebase-admin']
+    }
+  },
+
   adapter: cloudflare({
     platformProxy: {
       enabled: true
