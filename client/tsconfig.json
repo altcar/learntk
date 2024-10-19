@@ -5,6 +5,7 @@
       "@cloudflare/workers-types/2023-07-01"
     ],
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    // "module": "es2020"
   }
 }
