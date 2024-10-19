@@ -2,6 +2,7 @@
 client/dist/
 # generated types
 client/.astro/
+client/.vercel/
 
 # dependencies
 client/node_modules/
