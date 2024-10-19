@@ -1,1 +1,6 @@
-// Contents removed by Astro as it's used for prerendering only
+import { _ as _page } from '../../chunks/firebase_BzmB-pzN.mjs';
+export { renderers } from '../../renderers.mjs';
+
+const page = () => _page;
+
+export { page };

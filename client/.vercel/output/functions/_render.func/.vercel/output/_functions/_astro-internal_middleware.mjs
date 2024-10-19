@@ -1,8 +1,8 @@
 import 'es-module-lexer';
-import './chunks/astro-designed-error-pages_rdHpSKek.mjs';
+import './chunks/astro-designed-error-pages_D2uw_cpA.mjs';
 import 'cookie';
-import { d as defineMiddleware, s as sequence } from './chunks/index_EmPuiDaQ.mjs';
-import { u as useTranslations } from './chunks/translations_DmADuo8v.mjs';
+import { d as defineMiddleware, s as sequence } from './chunks/index_DTRKOMoF.mjs';
+import { u as useTranslations } from './chunks/translations_CnOezYSw.mjs';
 
 const onRequest$1 = defineMiddleware((context, next) => {
   context.locals.t = useTranslations(context.currentLocale);

@@ -1,9 +1,10 @@
 import type { APIRoute } from 'astro';
+export const prerender = true;
 
 const usernames = ["Sarah", "Chris", "Yan", "Elian"]
 
 export const GET: APIRoute = ({ params, request }) => {
-  const id = params.id;
+  const id : number = parseInt(params.id ?? "0") ?? 0;
   return new Response(
     JSON.stringify({
       name: usernames[id]
