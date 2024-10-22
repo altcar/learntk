@@ -10,9 +10,12 @@ const app = express();
 app.get('/', (req, res) => {
     res.send('you doing good today?');
 });
+app.get('/000', (req, res) => {
+    res.json(JSON.parse(process.env.FIREBASE));
+});
 app.get('/favicon.ico', (req, res) => res.status(200))
 app.get('/auth/discord',(req, res) => {
-    res.redirect(`https://discord.com/oauth2/authorize?client_id=1218693542092996618&response_type=code&redirect_uri=https%3A%2F%2Flearntk-auth.vercel.app%2Fauth%2Fdiscord%2Fcallback&scope=identify+guilds+email+guilds.members.read`);
+    res.redirect(`https://discord.com/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&response_type=code&redirect_uri=${process.env.DISCORD_REDIRECT_URI}&scope=identify+guilds+email+guilds.members.read`);
 });
 app.get('/auth/discord/callback', async (req, res) => {
     try{
