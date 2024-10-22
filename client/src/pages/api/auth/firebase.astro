@@ -1,27 +1,36 @@
 ---
 // import type { APIRoute } from "astro";
-import { app } from "../../../firebase/server";
-import { getFirestore } from "firebase-admin/firestore";
+// import { app } from "@lib/firebase/server";
+// import { getFirestore } from "firebase-admin/firestore";
 
-export const GET: APIRoute = async ({
-  params,
-  request,
-  redirect,
-  cookies,
-}) => {
-    return new Response(request.id, { status: 300 });
-}
+import { firestore } from "../../../lib/firebase/server";
+
+// export const GET: APIRoute = async ({
+//   params,
+//   request,
+//   redirect,
+//   cookies,
+// }) => {
+//     return new Response(request.id, { status: 300 });
+// }
 
 export async function discord_data(data : string) {
-    const db = getFirestore(app);
-    const docRef = db.collection("user").doc(data);
-    const getdata = await docRef.get();
+    // const db = getFirestore(app);
+    // const docRef = db.collection("user").doc(data);
+    // const getdata = await docRef.get();
+    const getdata = await firestore
+  .collection("user")
+  .doc(data)
+  .get();
     return(getdata.data())
 }
 export async function registerUser([data,id] : [any,string]) {
-    const db = getFirestore(app);
-    const docRef = db.collection("user").doc(id);
-    await docRef.set({
+    // const db = getFirestore(app);
+    // const docRef = db.collection("user").doc(id);
+    const getdata = await firestore
+  .collection("user")
+  .doc(data)
+  .set({
         ["newuser"]: false,
         ["certificate_name"]: data.name,
         ["communicate_email"]: data.email,
