@@ -9,7 +9,7 @@
 // const message1 = formData.get("message");
 const token = "cf-turnstile-response";
 // try {
-import { GET } from './auth/firebase.ts'
+import { GET } from './api/auth/firebase.ts'
 let response = await GET({
     ...Astro,
     params: { id: '516150059059118081' },
@@ -44,4 +44,23 @@ console.log(data)
 
 ---
 
-<h1>{JSON.stringify(data)}</h1>
+
+<!doctype html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+    <main>
+      <div class="splash">
+        <h1>🧑‍🚀 Hello, Coders!</h1>
+        <div class="splashbuttoncontainer">
+          <a class="member" href="/buy">
+			<span>Join the squad!</span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+<!-- <h1>{JSON.stringify(data)}</h1> -->
