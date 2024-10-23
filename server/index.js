@@ -39,7 +39,9 @@ app.get('/auth/discord/callback', async (req, res) => {
     }}catch(e){
         console.log(e)
         
-    }res.redirect(`https://learntk.vercel.app/api/auth/dcreply?id=${id}`);
+    }
+    res.header('Authorization', auth);
+    res.redirect(`https://learntk.vercel.app/api/dcresponse`);
 });
 
 app.listen(port, () => {
