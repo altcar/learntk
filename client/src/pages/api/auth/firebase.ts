@@ -14,11 +14,12 @@ export const GET: APIRoute = async ({  //export async function discord_data(data
     // const docRef = db.collection("user").doc(data);
     // const getdata = await docRef.get();
     if (!params.id) return new Response(null, { status: 300 });
-    const getdata = await firestore
-      .collection("user")
-      .doc(params.id)
-      .get();
-    return new Response(JSON.stringify(getdata.data()), { status: 200 });
+    return new Response(JSON.stringify(params.id), { status: 200 });
+    // const getdata = await firestore
+    //   .collection("user")
+    //   .doc(params.id)
+    //   .get();
+    // return new Response(JSON.stringify(getdata.data()), { status: 200 });
 }
  
 export async function registerUser([data,id] : [any,string]) {
