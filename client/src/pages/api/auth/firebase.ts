@@ -1,29 +1,26 @@
----
-// import type { APIRoute } from "astro";
-// import { app } from "@lib/firebase/server";
+
+import {type  APIRoute } from "astro";
+import { firestore } from "./firebase/server";
 // import { getFirestore } from "firebase-admin/firestore";
 
-import { firestore } from "../../../lib/firebase/server";
-
-// export const GET: APIRoute = async ({
-//   params,
-//   request,
-//   redirect,
-//   cookies,
-// }) => {
-//     return new Response(request.id, { status: 300 });
-// }
-
-export async function discord_data(data : string) {
+ 
+export const GET: APIRoute = async ({  //export async function discord_data(data : string) {
+  params,
+  request,
+  redirect,
+  cookies,
+}) => {
     // const db = getFirestore(app);
     // const docRef = db.collection("user").doc(data);
     // const getdata = await docRef.get();
+    if (!params.id) return new Response(null, { status: 300 });
     const getdata = await firestore
-  .collection("user")
-  .doc(data)
-  .get();
-    return(getdata.data())
+      .collection("user")
+      .doc(params.id)
+      .get();
+    return new Response(JSON.stringify(getdata.data()), { status: 200 });
 }
+ 
 export async function registerUser([data,id] : [any,string]) {
     // const db = getFirestore(app);
     // const docRef = db.collection("user").doc(id);
@@ -49,4 +46,3 @@ export async function registerUser([data,id] : [any,string]) {
         // website: data,
     },{merge: true});
 }
----
