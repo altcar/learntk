@@ -1,10 +1,10 @@
 
-import {type  APIRoute } from "astro";
+import type { APIRoute } from "astro";
 import { firestore } from "./firebase/server";
 // import { getFirestore } from "firebase-admin/firestore";
 
  
-export const GET: APIRoute = async ({  //export async function discord_data(data : string) {
+export const  GET: APIRoute = async ({  //export async function discord_data(data : string) {
   params,
   request,
   redirect,
