@@ -1,4 +1,4 @@
-import { c as createAstro, a as createComponent } from '../../chunks/astro/server_BO_t4FVd.mjs';
+import { c as createAstro, a as createComponent } from '../../chunks/astro/server_BPnEgIHd.mjs';
 import 'kleur/colors';
 import 'clsx';
 export { renderers } from '../../renderers.mjs';
@@ -18,9 +18,9 @@ const $$Login = createComponent(($$result, $$props, $$slots) => {
   } else {
     return Astro2.redirect("https://learntk-auth.vercel.app/auth/discord");
   }
-}, "/workspaces/learntk/client/src/pages/api/login.astro", void 0);
+}, "/mnt/l/save/devdrive/learntk/client/src/pages/api/login.astro", void 0);
 
-const $$file = "/workspaces/learntk/client/src/pages/api/login.astro";
+const $$file = "/mnt/l/save/devdrive/learntk/client/src/pages/api/login.astro";
 const $$url = "/api/login";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

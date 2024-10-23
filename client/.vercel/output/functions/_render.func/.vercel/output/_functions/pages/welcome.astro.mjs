@@ -1,8 +1,7 @@
-import { c as createAstro, a as createComponent, r as renderTemplate, f as addAttribute, d as renderHead, b as renderComponent } from '../chunks/astro/server_BO_t4FVd.mjs';
+import { c as createAstro, a as createComponent, r as renderTemplate, f as addAttribute, d as renderHead, b as renderComponent } from '../chunks/astro/server_BPnEgIHd.mjs';
 import 'kleur/colors';
-import { $ as $$BaseHead } from '../chunks/BaseHead_B80s4wwL.mjs';
+import { $ as $$BaseHead } from '../chunks/BaseHead_CwEaNICo.mjs';
 import { S as SITE_TITLE, a as SITE_DESCRIPTION } from '../chunks/consts_B7JnSmnR.mjs';
-import { r as registerUser } from '../chunks/firebase_BzmB-pzN.mjs';
 /* empty css                                   */
 export { renderers } from '../renderers.mjs';
 
@@ -48,7 +47,6 @@ const $$Welcome = createComponent(async ($$result, $$props, $$slots) => {
       }
       const hasErrors = Object.values(errors).some((msg) => msg);
       if (!hasErrors) {
-        await registerUser([{ name, email }, detail.discord_id]);
         return Astro2.redirect("/course");
       }
     } catch (error) {
@@ -58,9 +56,9 @@ const $$Welcome = createComponent(async ($$result, $$props, $$slots) => {
     }
   }
   return renderTemplate(_a || (_a = __template(['<html lang="en" class="astro-232m4wxw"> <head>', '<!-- <script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"><\/script>\n         <script is:inline>\n      <\/script> -->', '</head> <body class="astro-232m4wxw"> <div class="login-box astro-232m4wxw"> <form method="POST" class="astro-232m4wxw"> <h2 class="astro-232m4wxw">Welcome Onboard</h2> <div class="user-box astro-232m4wxw"> <input type="text" name="name" required', ' class="astro-232m4wxw"> <label class="astro-232m4wxw">Name on Certificate</label> </div> <div class="user-box astro-232m4wxw"> <input type="text" name="email" required', ' class="astro-232m4wxw"> <label class="astro-232m4wxw">Is this email you wish to communicate with?</label> </div> <button type="submit" class="astro-232m4wxw">submit</button> ', " ", " </form> </div>  </body></html>"])), renderComponent($$result, "BaseHead", $$BaseHead, { "title": SITE_TITLE, "description": SITE_DESCRIPTION, "class": "astro-232m4wxw" }), renderHead(), addAttribute(new1 ? detail?.certificate_name ?? "" : "", "value"), addAttribute(detail?.discord_email ?? "", "value"), errors.printedname && renderTemplate`<p class="astro-232m4wxw">${errors.printedname}</p>`, errors.email && renderTemplate`<p class="astro-232m4wxw">${errors.email}</p>`);
-}, "/workspaces/learntk/client/src/pages/welcome.astro", void 0);
+}, "/mnt/l/save/devdrive/learntk/client/src/pages/welcome.astro", void 0);
 
-const $$file = "/workspaces/learntk/client/src/pages/welcome.astro";
+const $$file = "/mnt/l/save/devdrive/learntk/client/src/pages/welcome.astro";
 const $$url = "/welcome";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
