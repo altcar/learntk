@@ -1,7 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { registerUser} from "./api/firebase.astro";
+// import { registerUser} from "./api/firebase.astro";
 
 var detail;
 var new1 = true;
@@ -35,7 +35,7 @@ if (Astro.request.method === "POST") {
     }
     const hasErrors = Object.values(errors).some((msg) => msg);
     if (!hasErrors) {
-      await registerUser([{ name, email}, detail.discord_id]);
+      // await registerUser([{ name, email}, detail.discord_id]);
       return Astro.redirect("/course");
     }
   } catch (error) {

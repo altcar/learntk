@@ -1,4 +1,4 @@
-import { a as createComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_BO_t4FVd.mjs';
+import { a as createComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_BPnEgIHd.mjs';
 import 'kleur/colors';
 import 'clsx';
 export { renderers } from '../renderers.mjs';
@@ -38,9 +38,9 @@ you will be redirected in <pre style="display: inline-block; margin:0;">5 second
 29.  After that, you need to add a new text shadow. <br>
 30.  Then, you need to add a new text shadow. <br>
 31.  After that, you need to add a new text shadow.<br>`;
-}, "/workspaces/learntk/client/src/pages/404.astro", void 0);
+}, "/mnt/l/save/devdrive/learntk/client/src/pages/404.astro", void 0);
 
-const $$file = "/workspaces/learntk/client/src/pages/404.astro";
+const $$file = "/mnt/l/save/devdrive/learntk/client/src/pages/404.astro";
 const $$url = "/404";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

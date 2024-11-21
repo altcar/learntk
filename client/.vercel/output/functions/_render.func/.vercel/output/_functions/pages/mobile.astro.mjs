@@ -1,6 +1,6 @@
-import { a as createComponent, r as renderTemplate, b as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_BO_t4FVd.mjs';
+import { a as createComponent, r as renderTemplate, b as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_BPnEgIHd.mjs';
 import 'kleur/colors';
-import { $ as $$BaseHead } from '../chunks/BaseHead_B80s4wwL.mjs';
+import { $ as $$BaseHead } from '../chunks/BaseHead_CwEaNICo.mjs';
 /* empty css                                  */
 export { renderers } from '../renderers.mjs';
 
@@ -9,9 +9,9 @@ const $$Mobile = createComponent(($$result, $$props, $$slots) => {
 <br class="astro-tzi6dhhv">
 Please use a laptop or desktop to access this page.
 </h5> <button onclick="window.location.href = window.location.origin" class="astro-tzi6dhhv"><h1 class="astro-tzi6dhhv">Try Again</h1></button> </div> `;
-}, "/workspaces/learntk/client/src/pages/mobile.astro", void 0);
+}, "/mnt/l/save/devdrive/learntk/client/src/pages/mobile.astro", void 0);
 
-const $$file = "/workspaces/learntk/client/src/pages/mobile.astro";
+const $$file = "/mnt/l/save/devdrive/learntk/client/src/pages/mobile.astro";
 const $$url = "/mobile";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

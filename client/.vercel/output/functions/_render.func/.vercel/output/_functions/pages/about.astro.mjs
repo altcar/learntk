@@ -1,6 +1,6 @@
-import { a as createComponent, r as renderTemplate, b as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_BO_t4FVd.mjs';
+import { a as createComponent, r as renderTemplate, b as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_BPnEgIHd.mjs';
 import 'kleur/colors';
-import { $ as $$BlogPost } from '../chunks/BlogPost_CsMIBWYA.mjs';
+import { $ as $$BlogPost } from '../chunks/BlogPost_CkYKk2sg.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$About = createComponent(($$result, $$props, $$slots) => {
@@ -9,9 +9,9 @@ We are Code Creators - a student led project teaching students how to code in Py
 </p> <h1 style="text-align: center;"> Enactus </h1> <hr> <p>
 Enactus Sheffield is an international non-profit organization that works with leaders in business and higher education to mobilize university students to make a difference in their communities while developing the skills to become socially responsible business leaders. CodeCreators falls under the commercial portfolio of Enactus Sheffield because we generate income to financially support other local and international projects.
 </p> ` })}`;
-}, "/workspaces/learntk/client/src/pages/about.astro", void 0);
+}, "/mnt/l/save/devdrive/learntk/client/src/pages/about.astro", void 0);
 
-const $$file = "/workspaces/learntk/client/src/pages/about.astro";
+const $$file = "/mnt/l/save/devdrive/learntk/client/src/pages/about.astro";
 const $$url = "/about";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
