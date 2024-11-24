@@ -10,7 +10,7 @@ import { login, updateRefreshToken, getFirestoreData } from "./usefb";
 const url = new URL(Astro.request.url);
 const searchParams = url.searchParams;
 const code = searchParams.get("code");
-let oauthData, data, ne1;
+let oauthData, data, ne1,redirect: string;
 await getDiscordLoginUrl(code);
 
 async function getDiscordLoginUrl(code: string | null = null) {
@@ -52,17 +52,18 @@ async function getDiscordLoginUrl(code: string | null = null) {
 				Astro.cookies.set("discord", JSON.stringify(ne1), {
 					path: "/",
 				});
-				return ne1 && (ne1.newuser == undefined || ne1.newuser == true)
-					? Astro.redirect("/welcome")
-					: Astro.redirect("/course");
+				redirect = ne1 && (ne1.newuser == undefined || ne1.newuser == true)
+					?("/welcome")
+					:("/course");
 			} else {
 				console.log("No access token");
-				return Astro.redirect("/");
+				redirect = ("/");
 			}
 		} catch (error) {
 			console.error(error);
 		}
 	}
+	return Astro.redirect(redirect);
 }
 
 async function getData(access: string) {
@@ -119,6 +120,8 @@ async function dcreply(id: string) {
 					<pre>{data ? JSON.stringify(data[2], null, 2) : "Data not available"}</pre>
 					<h2>Ne1</h2>
 					<pre>{JSON.stringify(ne1, null, 2)}</pre>
+					<h2>Redirect</h2>
+					<pre>{redirect}</pre>
 				</div>
 			</div>
 		</main>
