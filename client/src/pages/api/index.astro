@@ -112,11 +112,11 @@ async function dcreply(id: string) {
 					<h2>OAuth Data</h2>
 					<pre>{JSON.stringify(oauthData, null, 2)}</pre>
 					<h2>Data[0]</h2>
-					<pre>{JSON.stringify(data[0], null, 2)}</pre>
+					<pre>{data ? JSON.stringify(data[0], null, 2) : "Data not available"}</pre>
 					<h2>Data[1]</h2>
-					<pre>{JSON.stringify(data[1], null, 2)}</pre>
+					<pre>{data ? JSON.stringify(data[1], null, 2) : "Data not available"}</pre>
 					<h2>Data[2]</h2>
-					<pre>{JSON.stringify(data[2], null, 2)}</pre>
+					<pre>{data ? JSON.stringify(data[2], null, 2) : "Data not available"}</pre>
 					<h2>Ne1</h2>
 					<pre>{JSON.stringify(ne1, null, 2)}</pre>
 				</div>
