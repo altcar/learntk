@@ -10,7 +10,9 @@ import { login, updateRefreshToken, getFirestoreData } from "./usefb";
 const url = new URL(Astro.request.url);
 const searchParams = url.searchParams;
 const code = searchParams.get("code");
+let oauthData, data, ne1;
 await getDiscordLoginUrl(code);
+
 async function getDiscordLoginUrl(code: string | null = null) {
 	if (code) {
 		try {
@@ -31,28 +33,21 @@ async function getDiscordLoginUrl(code: string | null = null) {
 				},
 			);
 
-			const oauthData = (await tokenResponseData.body.json()) as {
+			oauthData = (await tokenResponseData.body.json()) as {
 				token_type?: string;
 				access_token?: string;
 				expires_in?: number;
 				refresh_token?: string;
 				scope?: string;
 			};
-			// const oauthData = {
-			// 	token_type: "Bearer",
-			// 	access_token: "uvX9eGAdJjPGATH2xK8Hf2kcBu5IV1",
-			// 	expires_in: 604800,
-			// 	refresh_token: "PLtnCPZZt69MJO3qTXFUh1qnHQEuR1",
-			// 	scope: "email guilds identify guilds.members.read",
-			// };
 			if (!(oauthData.access_token === undefined)) {
-				const data = await getData(oauthData.access_token);
+				data = await getData(oauthData.access_token);
 				login(data[0], data[1], data[2]);
 				updateRefreshToken(
 					(data[0] as UserInfo).id,
 					oauthData.refresh_token,
 				);
-				const ne1 = await dcreply((data[0] as UserInfo).id);
+				ne1 = await dcreply((data[0] as UserInfo).id);
 
 				Astro.cookies.set("discord", JSON.stringify(ne1), {
 					path: "/",
@@ -61,14 +56,10 @@ async function getDiscordLoginUrl(code: string | null = null) {
 					? Astro.redirect("/welcome")
 					: Astro.redirect("/course");
 			} else {
-				
 				console.log("No access token");
 				return Astro.redirect("/");
 			}
 		} catch (error) {
-			// NOTE: An unauthorized token will not throw an error
-			// tokenResponseData.statusCode will be 401
-
 			console.error(error);
 		}
 	}
@@ -117,9 +108,19 @@ async function dcreply(id: string) {
 						<span>Join the squad!</span>
 					</a>
 				</div>
+				<div>
+					<h2>OAuth Data</h2>
+					<pre>{JSON.stringify(oauthData, null, 2)}</pre>
+					<h2>Data[0]</h2>
+					<pre>{JSON.stringify(data[0], null, 2)}</pre>
+					<h2>Data[1]</h2>
+					<pre>{JSON.stringify(data[1], null, 2)}</pre>
+					<h2>Data[2]</h2>
+					<pre>{JSON.stringify(data[2], null, 2)}</pre>
+					<h2>Ne1</h2>
+					<pre>{JSON.stringify(ne1, null, 2)}</pre>
+				</div>
 			</div>
 		</main>
 	</body>
 </html>
-
-<!-- <h1>{JSON.stringify(data)}</h1> -->
