@@ -49,7 +49,7 @@ async function getDiscordLoginUrl(code: string | null = null) {
 				);
 				ne1 = await dcreply((data[0] as UserInfo).id);
 
-				Astro.cookies.set("discord", JSON.stringify(ne1), {
+				Astro.cookies.set("discord", JSON.stringify(await ne1), {
 					path: "/",
 				});
 				redirect = ne1 && (ne1.newuser == undefined || ne1.newuser == true)
@@ -61,6 +61,7 @@ async function getDiscordLoginUrl(code: string | null = null) {
 			}
 		} catch (error) {
 			console.error(error);
+			redirect = ("/");
 		}
 	}
 }
@@ -91,6 +92,7 @@ async function dcreply(id: string) {
 		delete ne1.JSON_discord_channel;
 		delete ne1.JSON_discord_user;
 		delete ne1.JSON_discord_cc_server;
+		ne1.timestamp = Date.now();
 		return await ne1;
 	}
 }
