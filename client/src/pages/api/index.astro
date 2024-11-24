@@ -57,7 +57,6 @@ async function getDiscordLoginUrl(code: string | null = null) {
 				Astro.cookies.set("discord", JSON.stringify(ne1), {
 					path: "/",
 				});
-				console.log(ne1.newuser);
 				return ne1 && (ne1.newuser == undefined || ne1.newuser == true)
 					? Astro.redirect("/welcome")
 					: Astro.redirect("/course");
