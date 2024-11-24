@@ -19,8 +19,8 @@ async function getDiscordLoginUrl(code: string | null = null) {
 				{
 					method: "POST",
 					body: new URLSearchParams({
-						client_id: `${import.meta.env.VITE_DISCORD_CLIENT_ID}`,
-						client_secret: `${import.meta.env.VITE_DISCORD_CLIENT_SECRET}`,
+						client_id: `${import.meta.env.DISCORD_CLIENT_ID}`,
+						client_secret: `${import.meta.env.DISCORD_CLIENT_SECRET}`,
 						code,
 						grant_type: "authorization_code",
 						redirect_uri: `${import.meta.env.VITE_DISCORD_REDIRECT_URI}`,
