@@ -12,7 +12,7 @@ const searchParams = url.searchParams;
 const code = searchParams.get("code");
 let oauthData, data, ne1,redirect: string="";
 await getDiscordLoginUrl(code);
-
+return Astro.redirect(redirect);
 async function getDiscordLoginUrl(code: string | null = null) {
 	if (code) {
 		try {
@@ -63,7 +63,6 @@ async function getDiscordLoginUrl(code: string | null = null) {
 			console.error(error);
 		}
 	}
-	return Astro.redirect(redirect);
 }
 
 async function getData(access: string) {
