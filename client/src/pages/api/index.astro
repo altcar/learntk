@@ -10,7 +10,7 @@ import { login, updateRefreshToken, getFirestoreData } from "./usefb";
 const url = new URL(Astro.request.url);
 const searchParams = url.searchParams;
 const code = searchParams.get("code");
-let oauthData, data, ne1,redirect: string;
+let oauthData, data, ne1,redirect: string="";
 await getDiscordLoginUrl(code);
 
 async function getDiscordLoginUrl(code: string | null = null) {
