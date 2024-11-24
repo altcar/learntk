@@ -8,6 +8,8 @@ import starlight from '@astrojs/starlight';
 
 import vercel from '@astrojs/vercel/serverless';
 
+import tailwind from '@astrojs/tailwind';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://learntk.vercel.app',
@@ -30,7 +32,7 @@ export default defineConfig({
     disable404Route: true,
     title: 'code creators',
     customCss: [ './src/styles/custom.css']
-  })],
+  }), tailwind()],
 
   adapter: vercel()
 });

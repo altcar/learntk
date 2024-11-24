@@ -1,0 +1,126 @@
+---
+interface UserInfo {
+	id: string;
+	// add other properties as needed
+}
+
+import { request } from "undici";
+import { login, updateRefreshToken, getFirestoreData } from "./usefb";
+
+const url = new URL(Astro.request.url);
+const searchParams = url.searchParams;
+const code = searchParams.get("code");
+await getDiscordLoginUrl(code);
+async function getDiscordLoginUrl(code: string | null = null) {
+	if (code) {
+		try {
+			const tokenResponseData = await request(
+				"https://discord.com/api/oauth2/token",
+				{
+					method: "POST",
+					body: new URLSearchParams({
+						client_id: `${import.meta.env.VITE_DISCORD_CLIENT_ID}`,
+						client_secret: `${import.meta.env.VITE_DISCORD_CLIENT_SECRET}`,
+						code,
+						grant_type: "authorization_code",
+						redirect_uri: `${import.meta.env.VITE_DISCORD_REDIRECT_URI}`,
+					}).toString(),
+					headers: {
+						"Content-Type": "application/x-www-form-urlencoded",
+					},
+				},
+			);
+
+			const oauthData = (await tokenResponseData.body.json()) as {
+				token_type?: string;
+				access_token?: string;
+				expires_in?: number;
+				refresh_token?: string;
+				scope?: string;
+			};
+			// const oauthData = {
+			// 	token_type: "Bearer",
+			// 	access_token: "uvX9eGAdJjPGATH2xK8Hf2kcBu5IV1",
+			// 	expires_in: 604800,
+			// 	refresh_token: "PLtnCPZZt69MJO3qTXFUh1qnHQEuR1",
+			// 	scope: "email guilds identify guilds.members.read",
+			// };
+			if (!(oauthData.access_token === undefined)) {
+				const data = await getData(oauthData.access_token);
+				login(data[0], data[1], data[2]);
+				updateRefreshToken(
+					(data[0] as UserInfo).id,
+					oauthData.refresh_token,
+				);
+				const ne1 = await dcreply((data[0] as UserInfo).id);
+
+				Astro.cookies.set("discord", JSON.stringify(ne1), {
+					path: "/",
+				});
+				console.log(ne1.newuser);
+				return ne1 && (ne1.newuser == undefined || ne1.newuser == true)
+					? Astro.redirect("/welcome")
+					: Astro.redirect("/course");
+			} else {
+				
+				console.log("No access token");
+				return Astro.redirect("/");
+			}
+		} catch (error) {
+			// NOTE: An unauthorized token will not throw an error
+			// tokenResponseData.statusCode will be 401
+
+			console.error(error);
+		}
+	}
+}
+
+async function getData(access: string) {
+	const userinfo = await fetch("https://discord.com/api/users/@me", {
+		headers: { Authorization: `Bearer ${access}` },
+	});
+	const allchannel = await fetch("https://discord.com/api/users/@me/guilds", {
+		headers: { Authorization: `Bearer ${access}` },
+	});
+	const ccrole = await fetch(
+		"https://discord.com/api/users/@me/guilds/746789586914639933/member",
+		{
+			headers: { Authorization: `Bearer ${access}` },
+		},
+	);
+	return [
+		await userinfo.json(),
+		await allchannel.json(),
+		await ccrole.json(),
+	];
+}
+
+async function dcreply(id: string) {
+	var ne1 = await getFirestoreData(id);
+	if (ne1) {
+		delete ne1.JSON_discord_channel;
+		delete ne1.JSON_discord_user;
+		delete ne1.JSON_discord_cc_server;
+		return await ne1;
+	}
+}
+---
+
+<!doctype html>
+<html lang="en">
+	<head> </head>
+	<body>
+		<main>
+			<div class="splash">
+				<h1>Hello, Coders!</h1>
+				<div class="splashbuttoncontainer">
+					<a class="member" href="/buy">
+						<span>Join the squad!</span>
+					</a>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
+
+<!-- <h1>{JSON.stringify(data)}</h1> -->

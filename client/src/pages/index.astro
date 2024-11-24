@@ -18,17 +18,18 @@ import Card from "../components/ProfileCard.astro";
   <body>
     <Header />
     <main>
-      <div class="splash">
+      <div class="py-[200px] px-0 flex flex-wrap justify-center">
         <h1>🧑‍🚀 Hello, Coders!</h1>
-        <div class="splashbuttoncontainer">
-          <a class="member" href="/buy">
+        <div class="flex">
+          <a class="flex flex-wrap flex-row justify-center" href="/buy">
 			<span>Join the squad!</span>
-            <button>
+            <button class="hover:bg-gray-300 mx-[20px] my-0 h-[50px] py-3 px-4 text-[1.1rem] font-medium relative min-h-[62px] flex items-center justify-center">
               <svg
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
+                class="mr-[10px]"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -41,11 +42,12 @@ import Card from "../components/ProfileCard.astro";
               Get the course now</button>
             </a>
 
-          <!-- <a class="member" href="/api/login" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=SomeSize,height=SomeSize'); return false;"> -->
-			<a class="member" href="/api/login" >
-		
+          <!-- <a class="flex flex-wrap flex-row justify-center" href="/api/login" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=SomeSize,height=SomeSize'); return false;"> -->
+			<a class="flex flex-wrap flex-row justify-center" href="/api/login" >
+
             <span>Already a member?</span>
             <button 
+              class="mx-[20px] my-0 h-[50px] py-3 px-4 text-[1.1rem] font-medium relative min-h-[62px] flex items-center justify-center"
               style="--provider-bg: #5865F2; --provider-dark-bg: #5865F2; --provider-color: #fff; --provider-dark-color: #fff; --provider-bg-hover: rgba(88, 101, 242, 0.8); --provider-dark-bg-hover: rgba(88, 101, 242, 0.8);"
               tabindex="0"
             >
@@ -53,18 +55,18 @@ import Card from "../components/ProfileCard.astro";
                 loading="lazy"
                 height="24"
                 width="24"
-                id="provider-logo"
+                class="w-[25px] block brightness-[2000] mr-[10px]"
                 src="https://authjs.dev/img/providers/discord.svg"
               />
-              <!-- <img loading="lazy" height="24" width="24" id="provider-logo-dark" src="https://authjs.dev/img/providers/discord.svg"> -->
-              <span>Sign in with Discord</span></button
+              <!-- <img loading="lazy" height="24" width="24" class="hidden" src="https://authjs.dev/img/providers/discord.svg"> -->
+              <span >Sign in with Discord</span></button
             >
           </a>
         </div>
       </div>
-      <div class="splash">
+      <div class="py-[200px] px-0 flex flex-wrap justify-center">
         <h1>Your Tutor:</h1>
-        <div class="splashbuttoncontainer">
+        <div class="flex ">
           <Card 	name="Shalev"   linkedin="https://www.linkedin.com/in/shalevl"  github="https://github.com/mushroomhater07"  email="mailto:admin@shalev.eu.org" image="/IMG_2845_edited.webp" />
           <Card 	name="Nedjm"   linkedin="https://www.linkedin.com/in/nedjm-eddine-laib-48873925b/"  image="/WhatsApp Image 2024-02-20 at 20_52_37_297df171.webp" />
           <Card 	name="Jivanthika"   linkedin="https://www.linkedin.com/in/jivanthika-venkatakrishnan-24356620a/"   image="/Plant Shadow _edited.webp" />
@@ -75,66 +77,20 @@ import Card from "../components/ProfileCard.astro";
     <Footer />
   </body><style>
 
-    .splash {
-      padding: 200px 0 200px 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .splashbuttoncontainer {
-      display: flex;
-    }
-    button svg,
-    button img {
-      margin-right: 10px;
-    }
-    button span {
-      flex-grow: 1;
-    }
-	.member {
-		display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-	}
+
+
     button {
-      margin: 0 20px 0 20px;
-      height: 50px;
-      padding: 0.75rem 1rem;
       color: var(--provider-color, var(--color-primary));
       background-color: var(--provider-bg);
-      font-size: 1.1rem;
-      min-height: 62px;
       border-color: rgba(0, 0, 0, 0.1);
       border-radius: var(--border-radius);
       transition: all 0.1s ease-in-out;
-      font-weight: 500;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     button:hover,
     a.button:hover {
       background-color: var(--provider-bg-hover, var(--color-background-hover));
-      cursor: pointer;
     }
 
-    button:active,
-    a.button:active {
-      cursor: pointer;
-    }
-
-    button #provider-logo,
-    a.button #provider-logo {
-      width: 25px;
-      display: block;
-    }
-
-    button #provider-logo-dark,
-    a.button #provider-logo-dark {
-      display: none;
-    }
   </style>
 </html>
