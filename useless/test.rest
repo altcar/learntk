@@ -1,0 +1,28 @@
+GET https://astro.shalevportal.eu.org/api/auth/dcreply
+?id=905931663937253376
+&noway=true
+###
+GET http://localhost:5000/auth/discord/renew?id=905931663937253376
+###
+GET http://localhost:5000/auth/discord
+
+###
+POST http://localhost:5000/auth/discord/renew HTTP/1.1
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+###
+POST https://discord.com/api/oauth2/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id=process.env.DISCORD_CLIENT_ID
+&client_secret=process.env.DISCORD_CLIENT_SECRET
+&grant_type='authorization_code'
+&code=code.toString()
+&redirect_uri=process.env.DISCORD_REDIRECT_URI
+###
+GET https://discord.com/api/users/@me
+Authorization: Bearer 
+###
+https://discord.com/oauth2/authorize?client_id=1218693542092996618&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4321%2Fapi&scope=identify+guilds+email+guilds.members.read
+https://discord.com/oauth2/authorize?client_id=1218693542092996618&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4321%2Fapi&scope=identify+guilds+email+guilds.members.read
